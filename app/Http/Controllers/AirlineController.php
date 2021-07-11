@@ -42,7 +42,8 @@ class AirlineController extends Controller
     public function index()
     {
         $tbl = Airline::all();
-        return response()->json(['AirlineList'=> $tbl],200);
+       return view('layouts.includes.airline',['data'=>$tbl]);
+        //return response()->json(['AirlineList'=> $tbl],200);
     }
 
     /**

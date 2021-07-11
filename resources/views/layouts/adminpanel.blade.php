@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="https://html.psdtohtmlexpert.com/admin/sunny-admin-template/images/favicon.ico">
 
-    <title>Saman Travel - Dashboard</title>
+    <title>Saman Travel </title>
     
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="css/vendors_css.css">
@@ -170,7 +170,7 @@
 				  <!-- logo for regular state and mobile devices -->
 					 <div class="d-flex align-items-center justify-content-center">					 	
 						  <img src="../images/logo-dark.png" alt="">
-						  <h3><b>Sunny</b> Admin</h3>
+						  <h3><b>Saman</b> Travel</h3>
 					 </div>
 				</a>
 			</div>
@@ -182,27 +182,31 @@
 		<li>
           <a href="index.html">
             <i data-feather="pie-chart"></i>
-			<span>Dashboard</span>
+			<span>داشبورد</span>
           </a>
         </li>  
 		
         <li class="treeview">
           <a href="#">
             <i data-feather="message-circle"></i>
-            <span>Application</span>
+            <span>اطلاعات پایه</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="chat.html"><i class="ti-more"></i>Chat</a></li>
-            <li><a href="calendar.html"><i class="ti-more"></i>Calendar</a></li>
-          </ul>
+            <li><a href="{{route('airline')}}"><i class="ti-more"></i>شرکت</a></li>
+			<li><a href="calendar.html"><i class="ti-more"></i>آژانس</a></li>
+			<li><a href="calendar.html"><i class="ti-more"></i>کاربران</a></li>
+            <li><a href="calendar.html"><i class="ti-more"></i>ایرلاین</a></li>
+			<li><a href="calendar.html"><i class="ti-more"></i>انواع هواپیما</a></li>
+			<li><a href="calendar.html"><i class="ti-more"></i>مسیر هوایی</a></li>
+		 </ul>
         </li> 
 		  
         <li class="treeview">
           <a href="#">
-            <i data-feather="mail"></i> <span>Mailbox</span>
+            <i data-feather="mail"></i> <span>قوانین</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
@@ -217,7 +221,7 @@
         <li class="treeview">
           <a href="#">
             <i data-feather="file"></i>
-            <span>Pages</span>
+            <span>گزارشات</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
@@ -237,7 +241,7 @@
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
              <i data-feather="lock"></i>
-	    	<span>Log Out</span>
+	    	<span>خروج</span>
         </a>
 
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
