@@ -22,3 +22,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/airline', [App\Http\Controllers\AirlineController::class, 'index'])->name('airline');
+Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
+
+Route::get('/users', [App\Http\Controllers\Auth\RegisterController::class, 'index'])->name('users');
+
+

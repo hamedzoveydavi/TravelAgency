@@ -13,11 +13,11 @@
     <title>Saman Travel </title>
     
 	<!-- Vendors Style-->
-	<link rel="stylesheet" href="css/vendors_css.css">
+	<link rel="stylesheet" href="{{asset('css/vendors_css.css')}}">
 	  
 	<!-- Style-->  
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/skin_color.css">
+	<link rel="stylesheet" href="{{asset('css/style.css')}}">
+	<link rel="stylesheet" href="{{asset('css/skin_color.css')}}">
      
   </head>
 
@@ -135,7 +135,7 @@
 			</a>
 			<ul class="dropdown-menu animated flipInX">
 			  <li class="user-body">
-				 <a class="dropdown-item" href="#"><i class="ti-user text-muted mr-2"></i> Profile</a>
+				 <a class="dropdown-item" href="{{route('profile')}}"><i class="ti-user text-muted mr-2"></i> Profile</a>
 				 <a class="dropdown-item" href="#"><i class="ti-wallet text-muted mr-2"></i> My Wallet</a>
 				 <a class="dropdown-item" href="#"><i class="ti-settings text-muted mr-2"></i> Settings</a>
 				 <div class="dropdown-divider"></div>
@@ -197,7 +197,7 @@
           <ul class="treeview-menu">
             <li><a href="{{route('airline')}}"><i class="ti-more"></i>شرکت</a></li>
 			<li><a href="calendar.html"><i class="ti-more"></i>آژانس</a></li>
-			<li><a href="calendar.html"><i class="ti-more"></i>کاربران</a></li>
+			<li><a href="{{route('users')}}"><i class="ti-more"></i>کاربران</a></li>
             <li><a href="calendar.html"><i class="ti-more"></i>ایرلاین</a></li>
 			<li><a href="calendar.html"><i class="ti-more"></i>انواع هواپیما</a></li>
 			<li><a href="calendar.html"><i class="ti-more"></i>مسیر هوایی</a></li>
@@ -276,10 +276,7 @@
 				<div class="col-12">
 					<div class="box">
 						<div class="box-header">
-							<h4 class="box-title align-items-start flex-column">
-								New Post
-								<small class="subtitle">More than 400+ new members</small>
-							</h4>
+							
 
                             @yield('content')
 
@@ -315,15 +312,15 @@
   	
 	 
 	<!-- Vendor JS -->
-	<script src="js/vendors.min.js"></script>
-    <script src="../assets/icons/feather-icons/feather.min.js"></script>	
-	<script src="../assets/vendor_components/easypiechart/dist/jquery.easypiechart.js"></script>
-	<script src="../assets/vendor_components/apexcharts-bundle/irregular-data-series.js"></script>
-	<script src="../assets/vendor_components/apexcharts-bundle/dist/apexcharts.js"></script>
+	<script src="{{asset('js/vendors.min.js')}}"></script>
+    <script src="{{asset('assets/icons/feather-icons/feather.min.js')}}"></script>	
+	<script src="{{asset('assets/vendor_components/easypiechart/dist/jquery.easypiechart.js')}}"></script>
+	<script src="{{asset('assets/vendor_components/apexcharts-bundle/irregular-data-series.js')}}"></script>
+	<script src="{{asset('assets/vendor_components/apexcharts-bundle/dist/apexcharts.js')}}"></script>
 	
 	<!-- Sunny Admin App -->
-	<script src="js/template.js"></script>
-	<script src="js/pages/dashboard.js"></script>
+	<script src="{{asset('js/template.js')}}"></script>
+	<script src="{{asset('js/pages/dashboard.js')}}"></script>
 	
 	
 </body>
