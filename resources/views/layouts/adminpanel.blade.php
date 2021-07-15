@@ -195,12 +195,14 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{route('airline')}}"><i class="ti-more"></i>شرکت</a></li>
-			<li><a href="calendar.html"><i class="ti-more"></i>آژانس</a></li>
+            <li><a href="{{route('Company')}}"><i class="ti-more"></i>شرکت</a></li>
+			<li><a href="{{route('SubAgencyList')}}"><i class="ti-more"></i>آژانس</a></li>
+			<li><a href="{{route('positionlist')}}"><i class="ti-more"></i>سمت</a></li>
 			<li><a href="{{route('users')}}"><i class="ti-more"></i>کاربران</a></li>
-            <li><a href="calendar.html"><i class="ti-more"></i>ایرلاین</a></li>
-			<li><a href="calendar.html"><i class="ti-more"></i>انواع هواپیما</a></li>
-			<li><a href="calendar.html"><i class="ti-more"></i>مسیر هوایی</a></li>
+            <li><a href="{{route('AirlineList')}}"><i class="ti-more"></i>ایرلاین</a></li>
+			<li><a href="{{route('AircraftList')}}"><i class="ti-more"></i>انواع هواپیما</a></li>
+			<li><a href="{{route('FlyRouteList')}}"><i class="ti-more"></i>مسیر هوایی</a></li>
+		
 		 </ul>
         </li> 
 		  

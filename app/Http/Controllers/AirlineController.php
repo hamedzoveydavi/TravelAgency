@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Airline;
 use Illuminate\Http\Request;
+use App\Http\Requests\AirlineRequest;
 
 
 class AirlineController extends Controller
@@ -42,7 +43,7 @@ class AirlineController extends Controller
     public function index()
     {
         $tbl = Airline::all();
-       return view('layouts.includes.airline',['data'=>$tbl]);
+       return view('layouts.includes.BaseInfo.airlinelist',['data'=>$tbl]);
         //return response()->json(['AirlineList'=> $tbl],200);
     }
 
@@ -51,10 +52,22 @@ class AirlineController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create(AirlineRequest $request)
     {
-        $tbl = Airline::create($request->json()->all());
-        return response()->json(['AirlineAdd'=> "$tbl.Saved data Succssefuly!"],200);
+        /*$tbl = Airline::create($request->json()->all());
+        return response()->json(['AirlineAdd'=> "$tbl.Saved data Succssefuly!"],200);*/
+
+        $tbl=new Airline;
+        $tbl->AirlineFA = $request->input('AirlineFA');
+        $tbl->AirlineEN = $request->input('AirlineEN');
+        $tbl->Symbol= $request->input('Symbol');
+        $tbl->logo = $request->input('logo');
+        if($tbl->save()){
+            return back()->with('success','Saved data successfully!',200);
+        }else{
+            return back()->with('error','Cant be Save data',404);
+        }
+
         }
 
     /**

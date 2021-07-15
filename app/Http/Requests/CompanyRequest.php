@@ -31,8 +31,8 @@ class CompanyRequest extends FormRequest
             'Register_No' => 'required|integer|min:4',
             'Company_Email' => 'required|email|min:4',
             'Company_Logo' => 'required|string|min:4',
-            'Company_Address' => 'required|string|min:10',
-            'Tel' => 'required|string|min:10|max:14',
+            'Company_Address' => 'required|string|max:255',
+            'Tel' => 'required|string|max:14',
             'Fax' => 'required|string|min:10|max:14',
                         
         ];

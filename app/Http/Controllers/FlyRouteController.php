@@ -15,8 +15,9 @@ class FlyRouteController extends Controller
      */
     public function index()
     {
-        $tbl = FlyRoute::paginate(10);
-        return response()->json(['FlyRouteList'=> $tbl],200);
+        $tbl = FlyRoute::all();
+        return view('layouts.includes.BaseInfo.flyRouteList',['data'=>$tbl]);
+        //return response()->json(['FlyRouteList'=> $tbl],200);
         
     }
 
@@ -38,8 +39,22 @@ class FlyRouteController extends Controller
      */
     public function store(FlyRouteRequest $request)
     {
-        $tbl = FlyRoute::create($request->json()->all());
-        return response()->json(['Aircraft_ClassAdd'=> "Saved data Succssefuly!"],200);
+        /*$tbl = FlyRoute::create($request->json()->all());
+        return response()->json(['Aircraft_ClassAdd'=> "Saved data Succssefuly!"],200);*/
+
+    $tbl = new FlyRoute;
+    $tbl->SourceFa = $request->input('SourceFa');
+    $tbl->SourceEN  = $request->input('SourceEN');
+    $tbl->Source_Symbol = $request->input('Source_Symbol');
+    $tbl->DestinationFa = $request->input('DestinationFa');
+    $tbl->DestinationEN = $request->input('DestinationEN');
+    $tbl->Destination_Symbol = $request->input('Destination_Symbol');
+    if($tbl->save()){
+        return back()->with('success','FlyRoute created successfully!',200);
+    }else{
+        return back()->with('error','Can Not Be Save data!',404);
+    }
+
     }
 
     /**

@@ -16,7 +16,9 @@ class SubAgencyController extends Controller
     public function index()
     {
         $tbl = SubAgency::all();
-        return response()->json(['SubAgencyList'=> $tbl],200);
+       return view('layouts.includes.BaseInfo.Agency-list',['data'=>$tbl]);
+       //return view('components.Form.Agency.Agency');
+        //return response()->json(['SubAgencyList'=> $tbl],200);
     }
 
     /**
@@ -35,10 +37,28 @@ class SubAgencyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //
     public function store(SubAgencyRequest $request)
     {
-        $tbl = SubAgency::create($request->json()->all());
-        return response()->json(['SubAgencyAdd'=> "Saved data Succssefuly!"],200);
+        /*$tbl = SubAgency::create($request->json()->all());
+        return response()->json(['SubAgencyAdd'=> "Saved data Succssefuly!"],200);*/
+
+        $tbl = new SubAgency;
+        $tbl->SubAgency_NameFA = $request->input('SubAgency_NameFA');
+        $tbl->SubAgency_NameEN = $request->input('SubAgency_NameEN');
+        $tbl->SubAgency_ManagerNameFA = $request->input('SubAgency_ManagerNameFA');
+        $tbl->SubAgency_ManagerNameEN = $request->input('SubAgency_ManagerNameEN');
+        $tbl->SubAgency_RegisterNo = $request->input('SubAgency_RegisterNo');
+        $tbl->SubAgency_Email = $request->input('SubAgency_Email');
+        $tbl->SubAgency_Address = $request->input('SubAgency_Address');
+        $tbl->SubAgency_Logo = $request->input('SubAgency_Logo');
+        $tbl->SubAgency_Tel = $request->input('SubAgency_Tel');
+        $tbl->SubAgency_Fax = $request->input('SubAgency_Fax');
+        if($tbl->save()){
+            return back()->with('success','Sub Agency created successfully!',200);
+        }else{
+            return back()->with('error','Sub Agency created successfully!',200);
+        }
     }
 
     /**

@@ -15,8 +15,10 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $tbl = Company::all();
-        return response()->json(['CompanyList'=> $tbl],200);
+
+        $tbl = Company::first();
+       return view('layouts.includes.BaseInfo.company',['data'=>$tbl]);
+               ///return response()->json(['CompanyList'=> $tbl],200);
     }
 
     /**
@@ -38,8 +40,24 @@ class CompanyController extends Controller
     public function store(CompanyRequest $request)
     {
         
-        $tbl = Company::create($request->json()->all());
-        return response()->json(['CompanyAdd'=> "Saved data Succssefuly!"],200);
+        /*$tbl = Company::create($request->json()->all());
+        return response()->json(['CompanyAdd'=> "Saved data Succssefuly!"],200);*/
+        $tbl = new Company;
+        $tbl->CompanyName_FA = $request->input('CompanyName_FA');
+        $tbl->CompanyName_EN = $request->input('CompanyName_EN');
+        $tbl->ManagerName_FA = $request->input('ManagerName_FA');
+        $tbl->ManagerName_EN = $request->input('ManagerName_EN');
+        $tbl->Register_No = $request->input('Register_No');
+        $tbl->Company_Email = $request->input('Company_Email');
+        $tbl->Company_Logo = $request->input('Company_Logo');
+        $tbl->Company_Address = $request->input('Company_Address');
+        $tbl->Tel = $request->input('Tel');
+        $tbl->Fax = $request->input('Fax');
+        if($tbl->save()){
+            return back()->with('success','Company created successfully!',200);
+        }else{
+            return back()->with('error','',400);
+        }
 
     }
 
@@ -87,9 +105,11 @@ class CompanyController extends Controller
         $tbl->Fax = $request->input('Fax'); 
 
         if($tbl->update()){
-             return response()->json(['CompanyUpdate'=> "Update data Succssefuly!"],200);
+            return back()->with('success','Update data successfully!',200);
+             //return response()->json(['CompanyUpdate'=> "Update data Succssefuly!"],200);
         }else{
-              return response()->json(['CompanyUpdate'=>'Cant be Update data'],404);
+            return back()->with('error','Cant be Update data',404);
+              //return response()->json(['CompanyUpdate'=>'Cant be Update data'],404);
         }
     }
 

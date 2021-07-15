@@ -31,7 +31,7 @@ class SubAgencyRequest extends FormRequest
             'SubAgency_RegisterNo'=> 'required|string|max:10|min:4',
             'SubAgency_Email'=> 'required|email',
             'SubAgency_Address'=>  'string|max:255|min:5',
-            'SubAgency_Logo'=>  'string|size:512',
+            //'SubAgency_Logo'=>  'string|size:512',
             'SubAgency_Tel'=>   'required|min:10',
             'SubAgency_Fax'=>   'required|min:10',
         ];

@@ -15,8 +15,10 @@ class PositionController extends Controller
      */
     public function index()
     {
+        /*$tbl = Position::all();
+        return response()->json(['PositionList'=> $tbl],200);*/
         $tbl = Position::all();
-        return response()->json(['PositionList'=> $tbl],200);
+        return view('layouts.includes.BaseInfo.positionlist',['data'=>$tbl]);
     }
 
     /**
@@ -37,8 +39,16 @@ class PositionController extends Controller
      */
     public function store(PositionRequest $request)
     {
-        $tbl = Position::create($request->json()->all());
-        return response()->json(['PositionAdd'=> "Saved data Succssefuly!"],200);
+        /*$tbl = Position::create($request->json()->all());
+        return response()->json(['PositionAdd'=> "Saved data Succssefuly!"],200);*/
+
+        $tbl = new Position;
+        $tbl->Position_Name = $request->input('Position_Name'); 
+        if($tbl->save()){
+            return back()->with('success','Position created successfully!',200);
+        }
+
+        
     }
 
     /**
