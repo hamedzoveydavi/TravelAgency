@@ -17,10 +17,10 @@ class AircraftDetailController extends Controller
      */
     public function index()
     {
-        $AirCraftType =Aircraft_Type::all();
-        $AircraftClass = Aircraft_Class::all();
-        $tbl = Aircraft_Detail::paginate(10);
-        return response()->json(['Aircraft_DetailList'=> $tbl,'classList'=>$AircraftClass->Class_Name,'TypeList'=>$AirCraftType->Type_Name],200);
+         $tbl = Aircraft_Detail::all();
+        return view('layouts.includes.BaseInfo.aircraftdetaillist',['data'=>$tbl]);
+        
+        //return response()->json(['Aircraft_DetailList'=> $tbl,'classList'=>$AircraftClass->Class_Name,'TypeList'=>$AirCraftType->Type_Name],200);
     }
 
     /**
@@ -39,10 +39,23 @@ class AircraftDetailController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //Aircraft_DetailRequest
     public function store(Aircraft_DetailRequest $request)
     {
-        $tbl = Aircraft_Detail::create($request->json()->all());
-        return response()->json(['Aircraft_DetailAdd'=> "Saved data Succssefuly!"],200);
+        /*$tbl = Aircraft_Detail::create($request->json()->all());
+        return response()->json(['Aircraft_DetailAdd'=> "Saved data Succssefuly!"],200);*/
+           
+
+        $tbl = new Aircraft_Detail;
+        $tbl->Type_Name = $request->input('Type_Name');
+        $tbl->Class_Name = $request->input('Class_Name');
+        $tbl->Total_Chair = $request->input('Total_Chair');
+       
+        if($tbl->save()){
+            return back()->with('success','Aircraft Type created successfully!',200);
+        }else{
+            return back()->with('error','Can not be Save Aircraft Type',404);
+        }
     }
 
     /**

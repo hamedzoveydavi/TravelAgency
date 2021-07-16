@@ -210,7 +210,7 @@
                   <ul class="treeview-menu">
 				 	<li><a href="{{route('AircraftList')}}"><i class="ti-more"></i>انواع هواپیما</a></li>
 					<li><a href="{{route('Aircraft_ClassList')}}"><i class="ti-more"></i>کلاس پرواز</a></li>
-					<li><a href="#"><i class="ti-more"></i>کانفیگ هواپیما</a></li>
+					<li><a href="{{route('Aircraft_DetailsList')}}"><i class="ti-more"></i>کانفیگ هواپیما</a></li>
                   </ul>
                 </li>
 

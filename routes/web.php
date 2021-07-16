@@ -70,7 +70,7 @@ Route::delete('Aircraft_Classdelete/{id}',[App\Http\Controllers\AircraftClassCon
 
 
 /* Aircraft_Detail */ 
-Route::get('Aircraft_DetailsList',[App\Http\Controllers\AircraftDetailController::class,'index'])->name('Aircraft_DetailList');
+Route::get('Aircraft_DetailsList',[App\Http\Controllers\AircraftDetailController::class,'index'])->name('Aircraft_DetailsList');
 Route::post('Aircraft_DetailStor',[App\Http\Controllers\AircraftDetailController::class,'store'])->name('Aircraft_DetailStor');
 Route::put('Aircraft_DetailUpdate/{id}',[App\Http\Controllers\AircraftDetailController::class,'update'])->name('Aircraft_DetailUpdate');
 Route::delete('Aircraft_Detaildelete/{id}',[App\Http\Controllers\AircraftDetailController::class,'destroy'])->name('Aircraft_Detaildelete');

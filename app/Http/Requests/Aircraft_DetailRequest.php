@@ -24,9 +24,9 @@ class Aircraft_DetailRequest extends FormRequest
     public function rules()
     {
         return [
-        'Type_Name'=>'required|string|max:10|min:10',
-        'Class_Name'=>'required|string|max:1|min:1',
-        'Total_Chair'=>'required|integer|max:3|min:2'
+        'Type_Name'=>'required|string|max:10',
+        'Class_Name'=>'required|string|max:1',
+        'Total_Chair'=>'required|integer|max:4'
         ];
     }
 }
