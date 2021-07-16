@@ -15,8 +15,9 @@ class PassengerluggageRulesController extends Controller
      */
     public function index()
     {
-        $tbl = Passengerluggage_rules::paginate(10);
-        return response()->json(['Passengerluggage_rulesList'=> $tbl],200);
+        $tbl = Passengerluggage_rules::all();
+        return view('layouts.includes.BaseInfo.passengerluggageruleslist',['data'=>$tbl]);
+        //return response()->json(['Passengerluggage_rulesList'=> $tbl],200);
     }
 
     /**
@@ -38,8 +39,19 @@ class PassengerluggageRulesController extends Controller
     public function store(Passengerluggage_rulesRequest $request)
     {
        
-        $tbl = Passengerluggage_rules::create($request->json()->all());
-        return response()->json(['Passengerluggage_rulesAdd'=> "Saved data Succssefuly!"],200);
+        /*$tbl = Passengerluggage_rules::create($request->json()->all());
+        return response()->json(['Passengerluggage_rulesAdd'=> "Saved data Succssefuly!"],200);*/
+
+        $tbl = new Passengerluggage_rules;
+        $tbl->NumberOfLuggage = $request->input('NumberOfLuggage');
+        $tbl->LuggageWeight = $request->input('LuggageWeight');
+        $tbl->NumberOfhandbag = $request->input('NumberOfhandbag');
+        $tbl->handbagWeight = $request->input('handbagWeight');
+        if($tbl->save()){
+            return back()->with('success','luggage rules created successfully!',200);
+        }else{
+            return back()->with('error','Can not be save This data',404);
+        }
 
     }
 

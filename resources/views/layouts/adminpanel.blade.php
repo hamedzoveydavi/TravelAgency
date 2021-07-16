@@ -229,7 +229,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{route('PassengerTypeList')}}"><i class="ti-more"></i> مسافر</a></li>
-            <li><a href="mailbox_compose.html"><i class="ti-more"></i>Compose</a></li>
+            <li><a href="{{route('Passenger_luggage')}}"><i class="ti-more"></i>چمدان</a></li>
             <li><a href="mailbox_read_mail.html"><i class="ti-more"></i>Read</a></li>
           </ul>
         </li>

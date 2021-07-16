@@ -89,8 +89,6 @@ Route::post('PassengerTypeStor',[App\Http\Controllers\PassengerTypeController::c
 Route::put('PassengerTypeUpdate/{id}',[App\Http\Controllers\PassengerTypeController::class,'update'])->name('PassengerTypeUpdate');
 Route::delete('PassengerTypedelete/{id}',[App\Http\Controllers\PassengerTypeController::class,'destroy'])->name('PassengerTypedelete');
 
-/* Refund_rules */ 
-Route::get('Refund_rulesList',[App\Http\Controllers\RefundRulesController::class,'index'])->name('Refund_rulesList');
-Route::post('Refund_rulesStor',[App\Http\Controllers\RefundRulesController::class,'store'])->name('Refund_rulesStor');
-Route::put('Refund_rulesUpdate/{id}',[App\Http\Controllers\RefundRulesController::class,'update'])->name('Refund_rulesUpdate');
-Route::delete('Refund_rulesedelete/{id}',[App\Http\Controllers\RefundRulesController::class,'destroy'])->name('Refund_rulesedelete');
+/* Passenger_luggage_rules */ 
+Route::get('Passenger_luggage',[App\Http\Controllers\PassengerluggageRulesController::class,'index'])->name('Passenger_luggage');
+Route::post('PassengerluggageStor',[App\Http\Controllers\PassengerluggageRulesController::class,'store'])->name('PassengerluggageStor');

@@ -24,10 +24,10 @@ class Passengerluggage_rulesRequest extends FormRequest
     public function rules()
     {
         return [
-        'NumberOfLuggage'=>'required|integer|max:1',
-        'LuggageWeight'=>'required|integer|max:2',
-        'NumberOfhandbag'=>'required|integer|max:1',
-        'handbagWeight'=>'required|string|max:2',
+        'NumberOfLuggage'=>'required|integer|max:2',
+        'LuggageWeight'=>'required|integer|max:30',
+        'NumberOfhandbag'=>'required|integer|max:2',
+        'handbagWeight'=>'required|string|max:10',
         ];
     }
 }
