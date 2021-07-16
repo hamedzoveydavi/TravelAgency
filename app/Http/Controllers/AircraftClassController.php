@@ -15,9 +15,9 @@ class AircraftClassController extends Controller
      */
     public function index()
     {
-        $tbl = Aircraft_Class::paginate(10);
-        return response()->json(['Aircraft_ClassList'=> $tbl],200);
-        
+        $tbl = Aircraft_Class::all();
+        return view('layouts.includes.BaseInfo.aircraftClassList',['data'=>$tbl]);
+         //return response()->json(['Aircraft_ClassList'=> $tbl],200);
     }
 
     /**
@@ -38,8 +38,17 @@ class AircraftClassController extends Controller
      */
     public function store(Aircraft_ClassRequest $request)
     {
-        $tbl = Aircraft_Class::create($request->json()->all());
-        return response()->json(['Aircraft_ClassAdd'=> "Saved data Succssefuly!"],200);
+        /*$tbl = Aircraft_Class::create($request->json()->all());
+        return response()->json(['Aircraft_ClassAdd'=> "Saved data Succssefuly!"],200);*/
+
+        $tbl = new Aircraft_Class;
+        $tbl->Class_Name = $request->input('Class_Name');
+        $tbl->Class_Symbol = $request->input('Class_Symbol');
+        if($tbl->save()){
+            return back()->with('success','Saved Class successfully!',200);
+        }else{
+            return back()->with('error','Can not be save Class',404);
+        }
     }
 
     /**

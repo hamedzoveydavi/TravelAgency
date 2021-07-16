@@ -24,7 +24,8 @@ class Aircraft_ClassRequest extends FormRequest
     public function rules()
     {
         return [
-            'Class_Name'=>'required|string|max:1|min:1'
+            'Class_Name'=>'required|string|max:15|min:4',
+            'Class_Symbol'=>'required|string|max:1'
         ];
     }
 }

@@ -55,12 +55,28 @@ Route::post('AirlineStor',[App\Http\Controllers\AirlineController::class,'create
 Route::put('AirlineUpdate/{id}',[App\Http\Controllers\AirlineController::class,'update'])->name('AirlineUpdate');
 Route::delete('Airlinedelete/{id}',[App\Http\Controllers\AirlineController::class,'destroy'])->name('Airlinedelete');
 
-
 /* AircraftType */ 
 Route::get('AircraftList',[App\Http\Controllers\AircraftTypeController::class,'index'])->name('AircraftList');
 Route::post('AircraftTypeStor',[App\Http\Controllers\AircraftTypeController::class,'store'])->name('AircraftTypeStor');
 Route::put('AircraftTypeUpdate/{id}',[App\Http\Controllers\AircraftTypeController::class,'update'])->name('AircraftTypeUpdate');
 Route::delete('AircraftTypedelete/{id}',[App\Http\Controllers\AircraftTypeController::class,'destroy'])->name('AircraftTypedelete');
+
+
+/* Aircraft_Class */ 
+Route::get('Aircraft_ClassList',[App\Http\Controllers\AircraftClassController::class,'index'])->name('Aircraft_ClassList');
+Route::post('Aircraft_ClassStor',[App\Http\Controllers\AircraftClassController::class,'store'])->name('Aircraft_ClassStor');
+Route::put('Aircraft_ClassUpdate/{id}',[App\Http\Controllers\AircraftClassController::class,'update'])->name('Aircraft_ClassUpdate');
+Route::delete('Aircraft_Classdelete/{id}',[App\Http\Controllers\AircraftClassController::class,'destroy'])->name('Aircraft_Classdelete');
+
+
+/* Aircraft_Detail */ 
+Route::get('Aircraft_DetailsList',[App\Http\Controllers\AircraftDetailController::class,'index'])->name('Aircraft_DetailList');
+Route::post('Aircraft_DetailStor',[App\Http\Controllers\AircraftDetailController::class,'store'])->name('Aircraft_DetailStor');
+Route::put('Aircraft_DetailUpdate/{id}',[App\Http\Controllers\AircraftDetailController::class,'update'])->name('Aircraft_DetailUpdate');
+Route::delete('Aircraft_Detaildelete/{id}',[App\Http\Controllers\AircraftDetailController::class,'destroy'])->name('Aircraft_Detaildelete');
+
+
+
 
 /* FlyRoute */ 
 Route::get('FlyRouteList',[App\Http\Controllers\FlyRouteController::class,'index'])->name('FlyRouteList');

@@ -200,11 +200,25 @@
 			<li><a href="{{route('positionlist')}}"><i class="ti-more"></i>سمت</a></li>
 			<li><a href="{{route('users')}}"><i class="ti-more"></i>کاربران</a></li>
             <li><a href="{{route('AirlineList')}}"><i class="ti-more"></i>ایرلاین</a></li>
-			<li><a href="{{route('AircraftList')}}"><i class="ti-more"></i>انواع هواپیما</a></li>
+			
+			<li class="treeview">
+                  <a href="#">هواپیما
+                    <span class="pull-right-container">
+					  <i class="fa fa-angle-right pull-right"></i>
+					</span>
+                  </a>
+                  <ul class="treeview-menu">
+				 	<li><a href="{{route('AircraftList')}}"><i class="ti-more"></i>انواع هواپیما</a></li>
+					<li><a href="{{route('Aircraft_ClassList')}}"><i class="ti-more"></i>کلاس پرواز</a></li>
+					<li><a href="#"><i class="ti-more"></i>کانفیگ هواپیما</a></li>
+                  </ul>
+                </li>
+
 			<li><a href="{{route('FlyRouteList')}}"><i class="ti-more"></i>مسیر هوایی</a></li>
-		
+			
 		 </ul>
         </li> 
+
 		  
         <li class="treeview">
           <a href="#">
