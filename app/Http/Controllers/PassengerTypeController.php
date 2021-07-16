@@ -15,8 +15,9 @@ class PassengerTypeController extends Controller
      */
     public function index()
     {
-        $tbl = PassengerType::paginate(10);
-        return response()->json(['PassengerTypeList'=> $tbl],200);
+        $tbl = PassengerType::all();
+        return view('layouts.includes.BaseInfo.passengerTypeList',['data'=>$tbl]);
+        //return response()->json(['PassengerTypeList'=> $tbl],200);
     }
 
     /**
@@ -37,8 +38,21 @@ class PassengerTypeController extends Controller
      */
     public function store(PassengerTypeRequest $request)
     {
-        $tbl = PassengerType::create($request->json()->all());
-        return response()->json(['PassengerTypeAdd'=> "Saved data Succssefuly!"],200);
+        /*$tbl = PassengerType::create($request->json()->all());
+        return response()->json(['PassengerTypeAdd'=> "Saved data Succssefuly!"],200);*/
+
+        $tbl = new PassengerType;
+        $tbl->PassengerType = $request->input('PassengerType');
+        $tbl->From_Age = $request->input('From_Age');
+        $tbl->To_Age = $request->input('To_Age');
+        $tbl->Discount = $request->input('Discount');
+        if($tbl->save()){
+            return back()->with('success','Passenger Type created successfully!',200);
+        }else{
+            return back()->with('error','Can not be Save data!',404);
+        }
+
+
     }
 
     /**

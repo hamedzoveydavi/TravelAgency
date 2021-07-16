@@ -76,10 +76,21 @@ Route::put('Aircraft_DetailUpdate/{id}',[App\Http\Controllers\AircraftDetailCont
 Route::delete('Aircraft_Detaildelete/{id}',[App\Http\Controllers\AircraftDetailController::class,'destroy'])->name('Aircraft_Detaildelete');
 
 
-
-
 /* FlyRoute */ 
 Route::get('FlyRouteList',[App\Http\Controllers\FlyRouteController::class,'index'])->name('FlyRouteList');
 Route::post('FlyRouteStor',[App\Http\Controllers\FlyRouteController::class,'store'])->name('FlyRouteStor');
 Route::put('FlyRouteUpdate/{id}',[App\Http\Controllers\FlyRouteController::class,'update'])->name('FlyRouteUpdate');
 Route::delete('FlyRoutedelete/{id}',[App\Http\Controllers\FlyRouteController::class,'destroy'])->name('FlyRoutedelete');
+
+
+/* PassengerType */ 
+Route::get('PassengerTypeList',[App\Http\Controllers\PassengerTypeController::class,'index'])->name('PassengerTypeList');
+Route::post('PassengerTypeStor',[App\Http\Controllers\PassengerTypeController::class,'store'])->name('PassengerTypeStor');
+Route::put('PassengerTypeUpdate/{id}',[App\Http\Controllers\PassengerTypeController::class,'update'])->name('PassengerTypeUpdate');
+Route::delete('PassengerTypedelete/{id}',[App\Http\Controllers\PassengerTypeController::class,'destroy'])->name('PassengerTypedelete');
+
+/* Refund_rules */ 
+Route::get('Refund_rulesList',[App\Http\Controllers\RefundRulesController::class,'index'])->name('Refund_rulesList');
+Route::post('Refund_rulesStor',[App\Http\Controllers\RefundRulesController::class,'store'])->name('Refund_rulesStor');
+Route::put('Refund_rulesUpdate/{id}',[App\Http\Controllers\RefundRulesController::class,'update'])->name('Refund_rulesUpdate');
+Route::delete('Refund_rulesedelete/{id}',[App\Http\Controllers\RefundRulesController::class,'destroy'])->name('Refund_rulesedelete');

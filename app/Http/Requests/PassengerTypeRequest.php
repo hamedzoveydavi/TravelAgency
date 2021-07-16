@@ -24,10 +24,10 @@ class PassengerTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            'PassengerType'=>'required|string|max:3|min:3',
-            'From_Age'=>'required|integer|max:2|min:1',
-            'To_Age'=>'required|integer|max:2|min:1',
-            'Discount'=>'required|integer|max:2|min:1'
+            'PassengerType'=>'required|string|max:3',
+            'From_Age'=>'required|integer|max:100',
+            'To_Age'=>'required|integer|max:100',
+            'Discount'=>'required|integer|max:100'
                    ];
     }
 }
