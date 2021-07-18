@@ -24,9 +24,9 @@ class Pricing_policy_Request extends FormRequest
     public function rules()
     {
         return [
-            'SeatNo_from'=> 'required|integer|max:3|min:1',
-            'SeatNO_TO'=> 'required|integer|max:3|min:1',
-            'Price_Percentage'=> 'required|integer|max:2|min:1',
+            'SeatNo_from'=> 'required|integer',
+            'SeatNo_To'=> 'required|integer',
+            'Price_Percentage'=> 'required|integer',
         ];
     }
 }

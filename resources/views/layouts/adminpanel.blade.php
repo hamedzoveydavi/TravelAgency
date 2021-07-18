@@ -9,6 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="https://html.psdtohtmlexpert.com/admin/sunny-admin-template/images/favicon.ico">
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 
     <title>Saman Travel </title>
     
@@ -230,10 +231,26 @@
           <ul class="treeview-menu">
             <li><a href="{{route('PassengerTypeList')}}"><i class="ti-more"></i> مسافر</a></li>
             <li><a href="{{route('Passenger_luggage')}}"><i class="ti-more"></i>چمدان</a></li>
-            <li><a href="mailbox_read_mail.html"><i class="ti-more"></i>Read</a></li>
+            <li><a href="{{route('AgencyDiscountList')}}"><i class="ti-more"></i>پورسانت</a></li>
+			<li><a href="{{route('PricingPolicylist')}}"><i class="ti-more"></i>قیمت گذاری</a></li>
           </ul>
         </li>
 		
+
+		<li class="treeview">
+          <a href="#">
+            <i data-feather="file"></i>
+            <span>برنامه پرواز</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{route('FlyProgramList')}}"><i class="ti-more"></i>ایجاد برنامه </a></li>
+           
+          </ul>
+        </li> 
+
         <li class="treeview">
           <a href="#">
             <i data-feather="file"></i>

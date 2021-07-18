@@ -15,8 +15,7 @@ class CreateAgencyDiscountsTable extends Migration
     {
         Schema::create('agency_discounts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('Sub_Agency_id');
-            $table->foreign('Sub_Agency_id')->refrences('id')->on('sub_agencies')->onDelete('cascade');
+            $table->integer('SubAgency_id');
             $table->smallinteger('Discount');
             $table->timestamps();
         });
@@ -29,6 +28,6 @@ class CreateAgencyDiscountsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('agency__discounts');
+        Schema::dropIfExists('agency_discounts');
     }
 }

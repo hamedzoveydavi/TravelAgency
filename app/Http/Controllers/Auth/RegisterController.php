@@ -88,6 +88,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             
         ]);
+        dd(User);
 
         return response()->json(['UserAdd'=> "Saved data Succssefuly!"],200);
 
