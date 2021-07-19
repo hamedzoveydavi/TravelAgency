@@ -25,7 +25,11 @@
         <tr>
             <th scope="row">{{$list->id}}</th>
             <td class="text-center">{{$list->SeatNo_from}} </td>
+<<<<<<< HEAD
             <td class="text-center">{{$list->SeatNO_TO}} </td>
+=======
+            <td class="text-center">{{$list->SeatNo_To}} </td>
+>>>>>>> eb4753b9ccd9fa8372f27a40a1c53411ed2cc6f5
             <td class="text-center">{{$list->Price_Percentage}} %</td>
         <td class="text-center"> 
                 <a type="button" class="btn btn-rounded btn-sm btn-warning m-5" >Edit</a>

@@ -126,7 +126,11 @@
                         <div class="form-group row">
                             <label for="Price" class="col-md-4 col-form-label text-md-right">{{ __('Price') }}</label>
                             <div class="col-md-6">
+<<<<<<< HEAD
                                 <input id="Price" type="text" onkeyup="separateNum(this.value,this);" class="form-control @error('Price') is-invalid @enderror" name="Price" 
+=======
+                                <input id="Price" type="number" class="form-control @error('Price') is-invalid @enderror" name="Price" 
+>>>>>>> eb4753b9ccd9fa8372f27a40a1c53411ed2cc6f5
                                 
                                  value=@if(!empty($id)) "{{ $data->Price  }}" @else "{{ old('Price') }}" @endif 
                                  required autocomplete="Price">
@@ -253,6 +257,7 @@
                         </div>
 
 
+<<<<<<< HEAD
 </form>
 
 <script>
@@ -275,3 +280,6 @@
         }
     }
 </script>
+=======
+</form>
+>>>>>>> eb4753b9ccd9fa8372f27a40a1c53411ed2cc6f5
