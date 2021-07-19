@@ -18,7 +18,6 @@ class FlyProgramController extends Controller
     {
         
         $tbl = DB::table('fly_programs')
-<<<<<<< HEAD
         ->join('airlines','airlines.id', '=', 'fly_programs.Airlines_id')
         ->join('fly_routes', 'fly_routes.id', '=', 'fly_programs.Route_id')
         ->join('aircraft__details', 'aircraft__details.id', '=', 'fly_programs.AircraftDetail_id')
@@ -26,20 +25,9 @@ class FlyProgramController extends Controller
                 'fly_programs.FlydateFA','fly_programs.FlydateEN',
                   'airlines.Symbol','fly_routes.Source_Symbol','fly_routes.Destination_Symbol',
                 'aircraft__details.Type_Name','aircraft__details.Class_Name','fly_programs.FlyNo',
-                 'fly_programs.Price','fly_programs.Chair_avilable')
+                 'fly_programs.Price','fly_programs.Chair_avilable','fly_programs.SeatReserve')
         ->get();
 
-=======
-        ->join('airlines', 'airlines.id', '=', 'fly_programs.Airlines_id')
-        ->join('fly_routes', 'fly_routes.id', '=', 'fly_programs.Route_id')
-        ->select('fly_programs.id','fly_programs.FlyType',
-                 'fly_programs.FlydateFA', 'fly_programs.FlydateEN',
-                 'airlines.Symbol','fly_routes.Source_Symbol','fly_routes.Destination_Symbol',
-                 'fly_programs.Price','fly_programs.Chair_avilable')
-        ->get();
-
-        $tbl= FlyProgram::all();
->>>>>>> eb4753b9ccd9fa8372f27a40a1c53411ed2cc6f5
         return view('layouts.includes.BaseInfo.flyProgramlist',['data'=>$tbl]);
         
     }
@@ -72,11 +60,7 @@ class FlyProgramController extends Controller
         $tbl->Route_id = $request->input('Route_id');
         $tbl->AircraftDetail_id = $request->input('AircraftDetail_id');
         $tbl->FlyNo = $request->input('FlyNo');
-<<<<<<< HEAD
         $tbl->Price = str_replace(',','',$request->input('Price')) ;
-=======
-        $tbl->Price = $request->input('Price');
->>>>>>> eb4753b9ccd9fa8372f27a40a1c53411ed2cc6f5
         $tbl->luggageRules_id = $request->input('luggageRules_id');
         $tbl->FlyTime_at = $request->input('FlyTime_at');
         $tbl->DepartureTime_at = $request->input('DepartureTime_at');

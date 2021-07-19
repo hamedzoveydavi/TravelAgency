@@ -24,14 +24,12 @@ class CreateFlyProgramsTable extends Migration
             $table->integer('FlyNo')->nullable(false);
             $table->integer('Price')->nullable(false);
             $table->smallinteger('luggageRules_id');
-<<<<<<< HEAD
             $table->smallinteger('ReturnRules_id');
-=======
->>>>>>> eb4753b9ccd9fa8372f27a40a1c53411ed2cc6f5
             $table->time('FlyTime_at');
             $table->time('DepartureTime_at'); 
             $table->time('ArrivalTimeLocal_at');
             $table->smallinteger('Chair_avilable');
+            $table->smallinteger('SeatReserve');
             $table->tinyinteger('Status');
             $table->timestamps();
         });
