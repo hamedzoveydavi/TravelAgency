@@ -24,11 +24,11 @@ class FlyRouteRequest extends FormRequest
     public function rules()
     {
         return [
-            'SourceFa'=>'required|string|max:15|min:3',
-            'SourceEN'=>'required|string|max:20|min:3',
+            'SourceFa'=>'required|string|max:30|min:3',
+            'SourceEN'=>'required|string|max:30|min:3',
             'Source_Symbol'=>'required|string|max:3|min:2',
-            'DestinationFa'=>'required|string|max:15|min:3',
-            'DestinationEN'=>'required|string|max:15|min:3',
+            'DestinationFa'=>'required|string|max:30|min:3',
+            'DestinationEN'=>'required|string|max:30|min:3',
             'Destination_Symbol'=>'required|string|max:3|min:2',
 
         ];

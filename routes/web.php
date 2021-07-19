@@ -92,3 +92,19 @@ Route::delete('PassengerTypedelete/{id}',[App\Http\Controllers\PassengerTypeCont
 /* Passenger_luggage_rules */ 
 Route::get('Passenger_luggage',[App\Http\Controllers\PassengerluggageRulesController::class,'index'])->name('Passenger_luggage');
 Route::post('PassengerluggageStor',[App\Http\Controllers\PassengerluggageRulesController::class,'store'])->name('PassengerluggageStor');
+
+
+/* Pricing Policy */ 
+Route::get('PricingPolicylist',[App\Http\Controllers\PricingPolicyController::class,'index'])->name('PricingPolicylist');
+Route::post('PricingPolicyStor',[App\Http\Controllers\PricingPolicyController::class,'store'])->name('PricingPolicyStor');
+
+
+/* Agency Discount */ 
+Route::get('AgencyDiscountList',[App\Http\Controllers\AgencyDiscountController::class,'index'])->name('AgencyDiscountList');
+Route::post('AgencyDiscountStor',[App\Http\Controllers\AgencyDiscountController::class,'store'])->name('AgencyDiscountStor');
+
+
+
+/* Fly Program */
+Route::get('FlyProgramList',[App\Http\Controllers\FlyProgramController::class,'index'])->name('FlyProgramList');
+Route::post('FlyProgramStor',[App\Http\Controllers\FlyProgramController::class,'store'])->name('FlyProgramStor');

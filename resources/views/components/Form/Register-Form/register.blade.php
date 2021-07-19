@@ -1,3 +1,12 @@
+<?php
+use App\Models\SubAgency;
+use App\Models\Position;
+
+$Agancy = SubAgency::all();
+$pos = Position::all();
+
+?>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -78,16 +87,16 @@
                         </div>
 
 
+                        
                         <div class="form-group row">
                             <label for="Service_location" class="col-md-4 col-form-label text-md-right">{{ __('Service location') }}</label>
                             <div class="col-md-6">
-                                <input id="Service_location" type="text" class="form-control @error('Service_location') is-invalid @enderror" name="Service_location" value="{{ old('Service_location') }}" required autocomplete="Service_location">
-
-                                @error('Service_location')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <select  name="Service_location" class="form-select" aria-label="Default select example">
+                                  <option selected>Open this select menu</option>
+                                    @foreach($Agancy as $list1)
+                                        <option name="Service_location" value="{{$list1->id}}">{{$list1->SubAgency_NameFA}}</option>
+                                    @endforeach
+                                    </select>
                             </div>
                         </div>
 
@@ -95,16 +104,14 @@
                         <div class="form-group row">
                             <label for="Position" class="col-md-4 col-form-label text-md-right">{{ __('Position') }}</label>
                             <div class="col-md-6">
-                                <input id="Position" type="text" class="form-control @error('Position') is-invalid @enderror" name="Position" value="{{ old('Position') }}" required autocomplete="Position">
-
-                                @error('Position')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <select  name="Position" class="form-select" aria-label="Default select example">
+                                  <option selected>Open this select menu</option>
+                                    @foreach($pos as $list2)
+                                        <option name="Position" value="{{$list2->id}}">{{$list2->Position_Name}}</option>
+                                    @endforeach
+                                    </select>
                             </div>
-                        </div>
-                        
+                        </div>                     
 
 
                                 <div class="form-group row">

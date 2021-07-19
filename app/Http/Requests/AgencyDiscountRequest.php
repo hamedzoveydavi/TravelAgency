@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Aircraft_DetailRequest extends FormRequest
+class AgencyDiscountRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,8 @@ class Aircraft_DetailRequest extends FormRequest
     public function rules()
     {
         return [
-        'Type_Name'=>'required|string|max:10',
-        'Class_Name'=>'required|string|max:1',
-        'Total_Chair'=>'required|integer|max:250'
+            'SubAgency_id'=>'required|integer',
+            'Discount'=>'required|integer|max:100'
         ];
     }
 }

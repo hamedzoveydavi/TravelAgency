@@ -6,6 +6,7 @@ use App\Models\Pricing_policy;
 use Illuminate\Http\Request;
 use App\Http\Requests\Pricing_policy_Request;
 
+
 class PricingPolicyController extends Controller
 {
     /**
@@ -15,10 +16,11 @@ class PricingPolicyController extends Controller
      */
     public function index()
     {
-        
         $tbl = Pricing_policy::all();
-        return response()->json(['Pricing_policyList'=> $tbl],200);
+        return view('layouts.includes.BaseInfo.Pricingpolicylist',['data'=>$tbl]);
+        //return response()->json(['Pricing_policyList'=> $tbl],200);
         
+       
     }
 
     /**
@@ -39,8 +41,20 @@ class PricingPolicyController extends Controller
      */
     public function store(Pricing_policy_Request $request)
     {
-        $tbl = Pricing_policy::create($request->json()->all());
-        return response()->json(['Pricing_policyAdd'=> "Saved data Succssefuly!"],200);
+        /*$tbl = Pricing_policy::create($request->json()->all());
+        return response()->json(['Pricing_policyAdd'=> "Saved data Succssefuly!"],200);*/
+        
+        $tbl = new Pricing_policy;
+        $tbl->SeatNo_from = $request->input('SeatNo_from');
+        $tbl->SeatNo_To = $request->input('SeatNo_To');
+        $tbl->Price_Percentage = $request->input('Price_Percentage');
+        if($tbl->save()){
+            return back()->with('success','Position created successfully!',200);
+        }else{
+            return back()->with('error','Can not be Save data',404);
+        }
+
+      
     }
 
     /**
