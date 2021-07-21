@@ -186,6 +186,13 @@
 			<span>داشبورد</span>
           </a>
         </li>  
+
+		<li>
+          <a href="{{route('searchfly')}}">
+            <i data-feather="pie-chart"></i>
+			<span>جستجو</span>
+          </a>
+        </li> 
 		
         <li class="treeview">
           <a href="#">

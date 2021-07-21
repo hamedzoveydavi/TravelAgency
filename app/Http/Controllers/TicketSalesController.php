@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\TicketSales;
 use Illuminate\Http\Request;
 use DB;
+use App\Models\FlyRoute;
+
 
 class TicketSalesController extends Controller
 {
@@ -15,7 +17,7 @@ class TicketSalesController extends Controller
      */
     public function index()
     {
-        $tbl = DB::table('fly_programs')
+        /*$tbl = DB::table('fly_programs')
         ->join('airlines','airlines.id', '=', 'fly_programs.Airlines_id')
         ->join('fly_routes', 'fly_routes.id', '=', 'fly_programs.Route_id')
         ->join('aircraft__details', 'aircraft__details.id', '=', 'fly_programs.AircraftDetail_id')
@@ -24,10 +26,48 @@ class TicketSalesController extends Controller
                   'airlines.Symbol','fly_routes.Source_Symbol','fly_routes.SourceFa','fly_routes.Destination_Symbol',
                 'aircraft__details.Type_Name','aircraft__details.Class_Name','fly_programs.FlyNo',
                  'fly_programs.Price','fly_programs.Chair_avilable','fly_programs.SeatReserve')
+        ->get();*/
+
+        return view('layouts.includes.SearchFlight',['data'=>'']);
+        }
+
+    public function Searchfly()
+    {
+       
+
+        if(!empty($_POST['date'])){
+
+            $date = $_POST['date'];
+            $sc = $_POST['Source'];
+            $st = $_POST['Distination'];
+            $route = FlyRoute::where('Source_Symbol',$sc)->where('Destination_Symbol',$st)->first();
+           
+
+
+    $tbl = DB::table('fly_programs')
+        ->join('airlines','airlines.id', '=', 'fly_programs.Airlines_id')
+        ->join('fly_routes', 'fly_routes.id', '=', 'fly_programs.Route_id')
+        ->join('aircraft__details', 'aircraft__details.id', '=', 'fly_programs.AircraftDetail_id')
+        ->where('fly_programs.FlydateEN',$date)->where('fly_programs.Route_id',$route->id)->where('fly_programs.Status',1)
+        ->select('fly_programs.id','fly_programs.FlyType',
+                'fly_programs.FlydateFA','fly_programs.FlydateEN','fly_programs.FlyNo','fly_programs.FlyTime_at','fly_programs.DepartureTime_at','fly_programs.ArrivalTimeLocal_at',
+                'airlines.Symbol','fly_routes.Source_Symbol','fly_routes.SourceFa','fly_routes.Destination_Symbol','fly_routes.DestinationFa',
+                'aircraft__details.Type_Name','aircraft__details.Class_Name','fly_programs.FlyNo',
+                 'fly_programs.Price','fly_programs.Chair_avilable','fly_programs.SeatReserve')
         ->get();
 
-        return view('layouts.includes.home',['data'=>$tbl]);
+        return view('layouts.includes.SearchFlight',['data'=>$tbl]);
+
+        }else{
+            return view('layouts.includes.SearchFlight',['data'=>'']);
+
+        }
+
+
+   
     }
+
+
 
     /**
      * Show the form for creating a new resource.

@@ -17,6 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+
+
+Route::get('/searchfly', [App\Http\Controllers\TicketSalesController::class, 'index'])->name('searchfly');
+Route::post('/searchflylist', [App\Http\Controllers\TicketSalesController::class, 'Searchfly'])->name('searchflylist');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
