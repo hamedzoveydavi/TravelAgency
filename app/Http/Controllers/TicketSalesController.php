@@ -6,6 +6,7 @@ use App\Models\TicketSales;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\FlyRoute;
+use Auth;
 
 
 class TicketSalesController extends Controller
@@ -34,7 +35,6 @@ class TicketSalesController extends Controller
     public function Searchfly()
     {
        
-
         if(!empty($_POST['date'])){
 
             $date = $_POST['date'];
@@ -56,18 +56,16 @@ if(!empty($route->id)){
                  'fly_programs.Price','fly_programs.Chair_avilable','fly_programs.SeatReserve')
         ->get();
 
-        return view('layouts.includes.SearchFlight',['data'=>$tbl]);
+        return view('layouts.includes.SearchFlight',['data'=>$tbl,'routid'=>$route->id]);
 
     }else{
-        echo('Nothigs');
-    }
+        return view('layouts.includes.SearchFlight',['message'=>'توجه, پرواز مورد نظر یافت نشد!']);
+         }
 
         }else{
             return view('layouts.includes.SearchFlight',['data'=>'']);
 
         }
-
-
    
     }
 
@@ -89,9 +87,33 @@ if(!empty($route->id)){
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ticketsalesRequest $request)
     {
-        //
+        $maxid = TicketSales::select('id')->max();
+        
+        $tbl = new TicketSales;
+        
+        $tbl->FlyProgram_id = $request->input('FlyProgram_id');
+        $tbl->ref = ($maxid + 1000).'SAMT';
+        $tbl->PassengerType_id = $request->input('PassengerType_id');
+        $tbl->Name = $request->input('Name');
+        $tbl->Family = $request->input('Family');
+        $tbl->Nationality = $request->input('Nationality');
+        $tbl->National_Code = $request->input('National_Code');
+        $tbl->Passport_No = $request->input('Passport_No');
+        $tbl->Passport_ExpireDate = $request->input('Passport_ExpireDate');
+        $tbl->Dateofbirth_FA = $request->input('Dateofbirth_FA');
+        $tbl->Dateofbirth_EN = $request->input('Dateofbirth_EN');
+        $tbl->Gender = $request->input('Gender');
+        $tbl->Salesusername_id = Auth::user()->id;
+        if($tbl->save()){
+            return back()->with('success','Company created successfully!',200);
+        }else{
+            return back()->with('error','',400);
+        }
+
+
+
     }
 
     /**
