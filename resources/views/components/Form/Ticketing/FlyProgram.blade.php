@@ -257,7 +257,6 @@
                         </div>
 
 
-<<<<<<< HEAD
 </form>
 
 <script>
@@ -280,6 +279,3 @@
         }
     }
 </script>
-=======
-</form>
->>>>>>> eb4753b9ccd9fa8372f27a40a1c53411ed2cc6f5
