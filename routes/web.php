@@ -18,9 +18,6 @@ Route::get('/', function () {
 });
 
 
-
-
-
 Route::get('/searchfly', [App\Http\Controllers\TicketSalesController::class, 'index'])->name('searchfly');
 Route::post('/searchflylist', [App\Http\Controllers\TicketSalesController::class, 'Searchfly'])->name('searchflylist');
 

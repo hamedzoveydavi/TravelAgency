@@ -310,13 +310,10 @@
 		<section class="content">
 			<div class="row">
 			
-			
-			
-			
 				<div class="col-12">
 					<div class="box">
 						<div class="box-header">
-							
+						
 
                             @yield('content')
 

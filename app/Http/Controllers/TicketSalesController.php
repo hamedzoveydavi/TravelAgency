@@ -42,8 +42,8 @@ class TicketSalesController extends Controller
             $st = $_POST['Distination'];
             $route = FlyRoute::where('Source_Symbol',$sc)->where('Destination_Symbol',$st)->first();
            
-
-
+if(!empty($route->id)){
+                    
     $tbl = DB::table('fly_programs')
         ->join('airlines','airlines.id', '=', 'fly_programs.Airlines_id')
         ->join('fly_routes', 'fly_routes.id', '=', 'fly_programs.Route_id')
@@ -57,6 +57,10 @@ class TicketSalesController extends Controller
         ->get();
 
         return view('layouts.includes.SearchFlight',['data'=>$tbl]);
+
+    }else{
+        echo('Nothigs');
+    }
 
         }else{
             return view('layouts.includes.SearchFlight',['data'=>'']);
