@@ -31,11 +31,7 @@ class FlyProgramRequest extends FormRequest
             'Route_id'=> 'required|integer',
             'AircraftDetail_id'=> 'required|integer',
             'FlyNo'=> 'required|integer',
-<<<<<<< HEAD
             'Price'=>'required',
-=======
-            'Price'=>'required|integer',
->>>>>>> eb4753b9ccd9fa8372f27a40a1c53411ed2cc6f5
             'luggageRules_id'=> 'required|integer',
             'FlyTime_at'=> 'required|string|max:5',
             'DepartureTime_at' => 'required|string|max:5',

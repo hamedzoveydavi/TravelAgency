@@ -11,7 +11,7 @@
 			</div>
 
      
-      <table class="table table-bordered col-md-10 text-center">
+      <table class="table table-bordered col-md-12 text-center">
     <thead  class="thead-dark">
         <tr>
             <th scope="col" class="text-center">No</th>
@@ -36,7 +36,7 @@
     <tbody>
         @foreach($data as $list)
         <tr>
-            <th scope="row">{{$list->id}}</th>
+            <th scope="row">{{$list->fly_id}}</th>
             <td>@if($list->FlyType == 1)Departure @elseif($list->FlyType == 2) Arrival @endif</td>
 
             <td>

@@ -11,7 +11,7 @@
                             زاگرس
                             <span class="text-truncate" style="padding-right:20px">شماره پرواز:  {{$list->Symbol}} {{$list->FlyNo}}</span>
                         </span>
-                        <span class="text-truncate" style="position:absolute;padding:11px 335px">{{$list->FlydateFA}} </span>
+                        <span class="text-truncate" style="position:absolute;padding:11px 30%">{{$list->FlydateFA}} </span>
                         <div class="media-body" style="padding-right:60px">
                             <p>{{$list->Class_Name}} <b class="float-right" style="color:green">{{number_format($list->Price)}} ریال</b></p>
                             <strong>
