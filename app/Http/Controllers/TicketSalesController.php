@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\TicketSales;
 use Illuminate\Http\Request;
+//use Illuminate\Http\Request\ticketsalesRequest;
 use DB;
 use App\Models\FlyRoute;
 use Auth;
+
 
 
 class TicketSalesController extends Controller
@@ -69,6 +71,10 @@ if(!empty($route->id)){
    
     }
 
+  public function SelectFly(){
+    $id = $_GET['id'];
+    return view('layouts.includes.PassengerData',['id'=>$id,'data'=>'']);
+  }
 
 
     /**
@@ -87,14 +93,13 @@ if(!empty($route->id)){
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ticketsalesRequest $request)
+    public function store(Request $request)
     {
-        $maxid = TicketSales::select('id')->max();
-        
+        //$maxid = TicketSales::select('id')->max();
+        //آیتم بالا درست شود - حلقه تکرار گذاشته شود - مبلغ بلیط - تخفیف اعمال شود - کنترل تاریخ تولد - کنار هم گذاشتن تاریخ ها 
         $tbl = new TicketSales;
-        
         $tbl->FlyProgram_id = $request->input('FlyProgram_id');
-        $tbl->ref = ($maxid + 1000).'SAMT';
+        $tbl->ref ='123456';  //($maxid + 1000).'SAMT';
         $tbl->PassengerType_id = $request->input('PassengerType_id');
         $tbl->Name = $request->input('Name');
         $tbl->Family = $request->input('Family');
@@ -109,10 +114,8 @@ if(!empty($route->id)){
         if($tbl->save()){
             return back()->with('success','Company created successfully!',200);
         }else{
-            return back()->with('error','',400);
+            return back()->with('error','Can not be Save data',400);
         }
-
-
 
     }
 

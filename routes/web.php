@@ -112,3 +112,8 @@ Route::post('AgencyDiscountStor',[App\Http\Controllers\AgencyDiscountController:
 /* Fly Program */
 Route::get('FlyProgramList',[App\Http\Controllers\FlyProgramController::class,'index'])->name('FlyProgramList');
 Route::post('FlyProgramStor',[App\Http\Controllers\FlyProgramController::class,'store'])->name('FlyProgramStor');
+
+
+/* Tiketing */
+Route::get('Selectfly',[App\Http\Controllers\TicketSalesController::class,'SelectFly'])->name('Selectfly');
+Route::post('TicketStore',[App\Http\Controllers\TicketSalesController::class,'store'])->name('TicketStore');

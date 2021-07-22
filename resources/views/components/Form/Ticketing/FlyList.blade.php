@@ -29,7 +29,7 @@
                             </strong>
                            
                                 <div class="d-inline-block pull-right mt-10">
-                                    <button type="button" class="btn  btn-info m-12"> انتخاب  بلیط </button><br>
+                                    <a type="button" class="btn  btn-info m-12" href="{{route('Selectfly',['id'=>$list->id])}}"> انتخاب  بلیط </a><br>
                                    <span style="color:red;font-size:0.75em;padding-right:10px"> {{$list->Chair_avilable}} صندلی باقی مانده</span>
                                 </div>
                         </div>
