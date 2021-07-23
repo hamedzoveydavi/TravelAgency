@@ -227,21 +227,13 @@
                         <div class="form-group row">
                             <label for="Status" class="col-md-4 col-form-label text-md-right">{{ __('Status') }}</label>
                             <div class="col-md-6">
-                                <input id="Status" type="number" class="form-control @error('Status') is-invalid @enderror" name="Status" 
-                                
-                                 value=@if(!empty($id)) "{{ $data->Status  }}" @else "{{ old('Status') }}" @endif 
-                                 required autocomplete="Status">
+                                <select name="Status" class="form-select" aria-label="Default select example" style="width:100%">
+                                         <option name="Status" value="1">open</option>
+                                         <option name="Status" value="0">close</option>
+                                    </select>
 
-                                @error('Status')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
                         </div>
-
-
-                       
 
                         
                         <div class="form-group row mb-0">

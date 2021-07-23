@@ -1,15 +1,54 @@
 @extends('layouts.adminpanel')
 @section('content')
 
-<form method="post" action="{{route('TicketStore')}}">
-    @csrf 
+
+                    <div  class="container">
+                 
+               
+                              <div class="col-md-12 col-12">
+                                  <div class="media bg-white b-1 border-success mb-20">
+                                  <span class="avatar status-success" >
+                                      <img class="avatar" src="{{asset('AirlineLogo/izglogo.png')}}"  alt="...">
+                                      زاگرس
+                                      <span class="text-truncate" style="padding-right:20px">شماره پرواز:  {{$list->Symbol}} {{$list->FlyNo}}</span>
+                                  </span>
+                                  <span class="text-truncate" style="position:absolute;padding:11px 30%">{{$list->FlydateFA}} </span>
+                                  <div class="media-body" style="padding-right:60px">
+                                      <p>{{$list->Class_Name}} <b class="float-right" style="color:green">{{number_format($list->Price)}} ریال</b></p>
+                                      <strong>
+                                          <span class="text-truncate"> {{$list->SourceFa}} ({{$list->Source_Symbol}}) 
+                                              ----------------------------------->    
+                                          {{$list->DestinationFa}} 
+                                           ({{$list->Destination_Symbol}}) 
+                                          </span>
+                                                                                                  
+                                          <br>
+                                          <span class="text-truncate">{{$list->Type_Name}}</span><br>
+                                          <span class="text-truncate">{{$list->DepartureTime_at}} </span>
+                                          <span class="text-truncate" style="padding-right:40%">{{$list->ArrivalTimeLocal_at}} </span>
+                                          
+                                      </strong>
+                                     
+                                          <div class="d-inline-block pull-right mt-10">
+                                             
+                                             <span style="color:red;font-size:0.75em;padding-right:10px"> {{$list->Chair_avilable}} صندلی باقی مانده</span>
+                                          </div>
+                                  </div>
+                                  </div>	
+                             </div>	
+                    </div>
+
+<hr>
+
+
+
 
     <div  class="container"> 
             
         <div class="row">
             <div class="col">
-                <strong>{{$id}} مشخصات مسافران را وارد کنید </strong>
-                <input name="FlyProgram_id" type="text" value="{{$id}}" style="display:none">
+                <strong> مشخصات مسافران را وارد کنید </strong>
+                
             </div>
         <div class="col">       
 
@@ -35,15 +74,26 @@
     </div>	
     
 
-    <hr>
+    <form method="post" action="{{route('TicketStore')}}">
+    @csrf 
 
-    <div  class="container" style="margin-top:20px"> 
-    
+    <div class="col-md-12 col-12" style="margin-top:30px">
+        <div class="media bg-white b-1 border-success mb-20">
 
-                         <div class="form-group row">
-                         <input name="PassengerType_id" type="text" value="1">
-                         
-                            
+        <input name="FlyProgram_id" type="text" value="{{$id}}" style="display:none">
+
+
+                              <select name="PassengerType_id" class="form-select" aria-label="Default select example"  style="margin-right:5px">
+                                    <option selected></option>
+                                         <option name="PassengerType_id" value="1">ADL</option>
+                                         <option name="PassengerType_id" value="2">CHD</option>
+                                         <option name="PassengerType_id" value="2">INF</option>
+                              </select>
+
+
+                              
+                         <div class="form-group row" style="margin-top:15px">
+                                                                             
                             <input name="Name" type="text" placeholder="Name">
                             <input name="Family" type="text" placeholder="Family" style="margin-right:5px">
                                
@@ -51,7 +101,7 @@
                                     <option selected></option>
                                          <option name="Gender" value="1">Men</option>
                                          <option name="Gender" value="2">Women</option>
-                                </select>
+                            </select>
 
                                 <input name="National_Code" type="text" placeholder="National Code" style="margin-right:5px">
 
@@ -90,9 +140,7 @@
                                          <option name="m-s" value="10">دی</option>
                                          <option name="m-s" value="11">بهمن</option>
                                          <option name="m-s" value="12">اسفند</option>
-                                         
-                                </select>
-
+                                    </select>
 
                                 <select name="y-s" class="form-select" aria-label="Default select example"  style="margin-right:5px">
                                     <option selected></option>
@@ -104,7 +152,7 @@
                                          <option name="y-s" value="1395">1395</option>
                                          <option name="y-s" value="1394">1394</option>
                                          <option name="y-s" value="1393">1393</option>
-                                </select>
+                                    </select>
 
                         </div>
 
@@ -166,11 +214,26 @@
                                          <option name="y-m" value="2015">2015</option>
                                 </select>
 
+                
+                                <input name="Price" type="text" value="{{number_format($Price)}}"
+                                 style="position:absolute;margin:60px 230px 0 0" readonly> 
+
+                                 <input name="Price" type="text" value="{{number_format($dagency)}}"
+                                 style="position:absolute;margin:60px 0 0 0" readonly> 
+                                
 
                         </div>  
+                       
+              
+               
+                
+            
+        </div>
+    </div>
 
-    </div>      
-
+    <div style="text-align:left"> 
+        هزینه کل : {{number_format($list->Price)}} ریال
+</div>
 
 
     <div class="col-md-10 col-12">    
